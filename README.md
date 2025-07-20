@@ -14,7 +14,7 @@ Modern and elegant bookshelf application with glassmorphism design. Built with v
 
 ## 🚀 Live Demo
 
-Visit the live application: [Bookshelf App on Netlify](https://your-bookshelf-app.netlify.app)
+Visit the live application: [Bookshelf App on Netlify](https://booksep-app.netlify.app/)
 
 ## 🛠️ Technologies Used
 
