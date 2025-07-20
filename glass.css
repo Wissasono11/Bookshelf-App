@@ -1,0 +1,364 @@
+:root{
+    /* Floating Orb Colors - Enhanced Glow */
+    --orb-pink: rgba(255, 20, 147, 0.8);
+    --orb-orange: rgba(255, 69, 0, 0.7);
+    --orb-blue: rgba(0, 191, 255, 0.75);
+    --orb-purple: rgba(123, 104, 238, 0.6);
+    --orb-cyan: rgba(0, 255, 255, 0.65);
+    
+    /* Bright Glow Colors */
+    --glow-pink: rgba(255, 20, 147, 0.9);
+    --glow-orange: rgba(255, 100, 20, 0.85);
+    --glow-blue: rgba(30, 200, 255, 0.9);
+    --glow-purple: rgba(150, 120, 255, 0.8);
+    --glow-cyan: rgba(50, 255, 255, 0.85);
+}
+
+/* Animated Background Effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        /* Lingkaran besar pink di kiri bawah */
+        radial-gradient(circle 300px at 10% 85%, rgba(255, 20, 147, 0.4) 0%, transparent 50%),
+        /* Lingkaran medium orange di kanan atas */
+        radial-gradient(circle 250px at 90% 15%, rgba(255, 69, 0, 0.3) 0%, transparent 50%),
+        /* Lingkaran besar blue di kanan bawah */
+        radial-gradient(circle 350px at 85% 90%, rgba(0, 191, 255, 0.3) 0%, transparent 50%),
+        /* Lingkaran medium purple di tengah kiri */
+        radial-gradient(circle 200px at 15% 40%, rgba(123, 104, 238, 0.2) 0%, transparent 50%),
+        /* Lingkaran kecil pink di kanan tengah */
+        radial-gradient(circle 150px at 80% 60%, rgba(255, 107, 138, 0.3) 0%, transparent 50%),
+        /* Lingkaran medium cyan di kiri atas */
+        radial-gradient(circle 180px at 20% 20%, rgba(0, 255, 255, 0.2) 0%, transparent 50%),
+        /* Lingkaran kecil orange di tengah */
+        radial-gradient(circle 120px at 50% 30%, rgba(255, 127, 80, 0.25) 0%, transparent 50%),
+        /* Lingkaran kecil purple di kanan bawah */
+        radial-gradient(circle 100px at 70% 80%, rgba(90, 79, 207, 0.3) 0%, transparent 50%);
+    animation: gradientShift 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        /* Lingkaran blur besar untuk depth */
+        radial-gradient(circle 400px at 25% 75%, rgba(255, 20, 147, 0.15) 0%, transparent 40%),
+        radial-gradient(circle 300px at 75% 25%, rgba(255, 69, 0, 0.12) 0%, transparent 40%),
+        radial-gradient(circle 350px at 80% 80%, rgba(0, 191, 255, 0.15) 0%, transparent 40%),
+        linear-gradient(135deg, rgba(42, 27, 61, 0.3) 0%, rgba(68, 44, 92, 0.2) 100%);
+    animation: gradientShiftSecondary 25s ease-in-out infinite reverse;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        opacity: 0.7;
+        transform: scale(1) rotate(0deg);
+    }
+    33% {
+        opacity: 0.9;
+        transform: scale(1.1) rotate(5deg);
+    }
+    66% {
+        opacity: 0.8;
+        transform: scale(0.95) rotate(-3deg);
+    }
+}
+
+@keyframes gradientShiftSecondary {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05) rotate(2deg);
+    }
+}
+
+/* Floating Elements untuk meniru elemen UI - Enhanced Glow */
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-elements::before {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 8%;
+    width: 100px;
+    height: 100px;
+    background: var(--glow-pink);
+    border-radius: 50%;
+    filter: blur(25px);
+    animation: float1 8s ease-in-out infinite, pulseGlow 3.5s ease-in-out infinite;
+    animation-delay: 0s, -1.5s;
+    box-shadow: 
+        0 0 20px var(--glow-pink),
+        0 0 40px var(--glow-pink),
+        0 0 60px rgba(255, 20, 147, 0.5);
+}
+
+.floating-elements::after {
+    content: '';
+    position: absolute;
+    top: 60%;
+    right: 12%;
+    width: 80px;
+    height: 80px;
+    background: var(--glow-orange);
+    border-radius: 50%;
+    filter: blur(20px);
+    animation: float2 6s ease-in-out infinite, pulseGlow 4s ease-in-out infinite;
+    animation-delay: 0s, -2s;
+    box-shadow: 
+        0 0 25px var(--glow-orange),
+        0 0 50px var(--glow-orange),
+        0 0 75px rgba(255, 100, 20, 0.6);
+}
+
+/* Additional floating elements for more glow */
+.floating-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-elements .extra-glow-1 {
+    position: absolute;
+    top: 35%;
+    right: 20%;
+    width: 60px;
+    height: 60px;
+    background: var(--glow-cyan);
+    border-radius: 50%;
+    filter: blur(30px);
+    animation: float1 10s ease-in-out infinite reverse, pulseGlow 3s ease-in-out infinite;
+    animation-delay: 0s, -1s;
+    box-shadow: 
+        0 0 30px var(--glow-cyan),
+        0 0 60px rgba(50, 255, 255, 0.5);
+}
+
+.floating-elements .extra-glow-2 {
+    position: absolute;
+    bottom: 40%;
+    left: 25%;
+    width: 70px;
+    height: 70px;
+    background: var(--glow-purple);
+    border-radius: 50%;
+    filter: blur(25px);
+    animation: float2 12s ease-in-out infinite, pulseGlow 4s ease-in-out infinite;
+    animation-delay: 0s, -2s;
+    box-shadow: 
+        0 0 35px var(--glow-purple),
+        0 0 70px rgba(150, 120, 255, 0.5);
+}
+
+@keyframes float1 {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.9;
+        filter: blur(25px) brightness(1.2);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.15);
+        opacity: 1;
+        filter: blur(20px) brightness(1.5);
+    }
+}
+
+@keyframes float2 {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 0.85;
+        filter: blur(20px) brightness(1.1);
+    }
+    50% {
+        transform: translateY(15px) scale(0.95);
+        opacity: 1;
+        filter: blur(15px) brightness(1.4);
+    }
+}
+
+/* Gradient Orbs untuk efek tambahan - Enhanced Glow */
+.gradient-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(60px) brightness(1.3);
+    opacity: 0.7;
+    animation: orbMove 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.gradient-orb:nth-child(2) {
+    top: 10%;
+    right: 15%;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, var(--glow-pink) 0%, var(--orb-pink) 40%, transparent 70%);
+    animation: orbMove 20s linear infinite, pulseGlow 4s ease-in-out infinite;
+    animation-delay: 0s, 0s;
+    box-shadow: 
+        0 0 80px var(--glow-pink),
+        0 0 160px rgba(255, 20, 147, 0.4);
+}
+
+.gradient-orb:nth-child(3) {
+    bottom: 20%;
+    left: 8%;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, var(--glow-orange) 0%, var(--orb-orange) 40%, transparent 70%);
+    animation: orbMove 25s linear infinite, pulseGlow 5s ease-in-out infinite;
+    animation-delay: -7s, -1s;
+    box-shadow: 
+        0 0 70px var(--glow-orange),
+        0 0 140px rgba(255, 100, 20, 0.4);
+}
+
+.gradient-orb:nth-child(4) {
+    bottom: 15%;
+    right: 10%;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, var(--glow-blue) 0%, var(--orb-blue) 40%, transparent 70%);
+    animation: orbMove 30s linear infinite, pulseGlow 6s ease-in-out infinite;
+    animation-delay: -14s, -2s;
+    box-shadow: 
+        0 0 60px var(--glow-blue),
+        0 0 120px rgba(30, 200, 255, 0.4);
+}
+
+/* Tambahan orb kecil dengan glow */
+.gradient-orb:nth-child(5) {
+    top: 45%;
+    left: 12%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, var(--glow-purple) 0%, var(--orb-purple) 40%, transparent 70%);
+    animation: orbMove 18s linear infinite, pulseGlow 3.5s ease-in-out infinite;
+    animation-delay: -3s, -0.5s;
+    box-shadow: 
+        0 0 50px var(--glow-purple),
+        0 0 100px rgba(150, 120, 255, 0.4);
+}
+
+.gradient-orb:nth-child(6) {
+    top: 25%;
+    left: 45%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, var(--glow-cyan) 0%, var(--orb-cyan) 40%, transparent 70%);
+    animation: orbMove 22s linear infinite, pulseGlow 4.5s ease-in-out infinite;
+    animation-delay: -10s, -1.5s;
+    box-shadow: 
+        0 0 40px var(--glow-cyan),
+        0 0 80px rgba(50, 255, 255, 0.4);
+}
+
+.gradient-orb:nth-child(7) {
+    top: 70%;
+    left: 60%;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, var(--glow-pink) 0%, var(--orb-pink) 40%, transparent 70%);
+    animation: orbMove 28s linear infinite, glowShift 8s ease-in-out infinite;
+    animation-delay: -5s, -2.5s;
+    box-shadow: 
+        0 0 45px var(--glow-pink),
+        0 0 90px rgba(255, 20, 147, 0.4);
+}
+
+@keyframes orbMove {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+        filter: blur(60px) brightness(1.3);
+        opacity: 0.7;
+    }
+    25% {
+        transform: translateY(-30px) translateX(20px) rotate(90deg);
+        filter: blur(50px) brightness(1.6);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(20px) translateX(-15px) rotate(180deg);
+        filter: blur(40px) brightness(1.8);
+        opacity: 1;
+    }
+    75% {
+        transform: translateY(-10px) translateX(10px) rotate(270deg);
+        filter: blur(55px) brightness(1.4);
+        opacity: 0.8;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 
+            0 0 20px currentColor,
+            0 0 40px currentColor,
+            0 0 60px currentColor;
+        opacity: 0.7;
+    }
+    50% {
+        box-shadow: 
+            0 0 30px currentColor,
+            0 0 60px currentColor,
+            0 0 90px currentColor;
+        opacity: 1;
+    }
+}
+
+@keyframes glowShift {
+    0% {
+        filter: blur(60px) brightness(1.3) hue-rotate(0deg);
+    }
+    25% {
+        filter: blur(50px) brightness(1.6) hue-rotate(90deg);
+    }
+    50% {
+        filter: blur(40px) brightness(1.8) hue-rotate(180deg);
+    }
+    75% {
+        filter: blur(55px) brightness(1.4) hue-rotate(270deg);
+    }
+    100% {
+        filter: blur(60px) brightness(1.3) hue-rotate(360deg);
+    }
+}
