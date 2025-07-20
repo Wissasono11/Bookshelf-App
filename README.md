@@ -141,8 +141,3 @@ This project is open source and available under the [MIT License](LICENSE).
 - Inspired by modern glassmorphism design trends
 - Built as part of front-end development learning journey
 - Special thanks to the web development community
-
----
-
-Made with ❤️ and modern web technologies | 2025 Bookshelf App
-https://github.com/Wissasono11/Bookshelf-App.git
